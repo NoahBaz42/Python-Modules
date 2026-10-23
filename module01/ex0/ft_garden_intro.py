@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # ============= Garden intro function ============================
 
 def ft_garden_intro() -> None:
