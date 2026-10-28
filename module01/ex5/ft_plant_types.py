@@ -6,7 +6,7 @@ class Plant:
         self.name = name
         self._height = height
         self._age = age
-        self.is_innit : bool = False
+        self.is_innit: bool = False
 
         self.set_age(age)
         self.set_height(height)
@@ -84,14 +84,17 @@ class Tree(Plant):
         super().__init__(name, height, age)
         print("=== Tree")
         self.trunk_diameter = trunk_diameter
-    
+
     def produce_shade(self) -> None:
         print(f"[asking the {self.name} to produce shade]")
-        print(f"Tree {self.name.capitalize()} now produces a shade of {self.height:.1f}cm long and {self.trunk_diameter:.1f}cm wide.")
+        print(f"Tree {self.name.capitalize()}"
+              "now produces a shade of {self.height:.1f}cm long and"
+              "{self.trunk_diameter:.1f}cm wide.")
 
     def show(self) -> None:
         super().show()
         print(f"Trunk diameter: {self.trunk_diameter:.1f}cm")
+
 
 class Vegetable(Plant):
     def __init__(self, name: str, height: int, age: int, harvest_season: str):
@@ -113,6 +116,7 @@ class Vegetable(Plant):
         print(f"Harvest season: {self.harvest_season}")
         print(f"Nutritional value: {self.nutritional_value}")
 
+
 def ft_plant_types() -> None:
     print("=== Garden Plant Types ===")
 
@@ -131,6 +135,7 @@ def ft_plant_types() -> None:
     veggy.show()
     veggy.grow_age(20)
     veggy.show()
+
 
 if __name__ == "__main__":
     ft_plant_types()

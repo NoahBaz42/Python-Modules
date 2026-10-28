@@ -6,7 +6,7 @@ class Plant:
         self.name = name
         self._height = height
         self._age = age
-        self.is_innit : bool = False
+        self.is_innit: bool = False
 
         self.set_age(age)
         self.set_height(height)
@@ -52,6 +52,7 @@ class Plant:
             if self.is_innit:
                 print(f"Age updated: {age}days")
 
+
 # ========= function to set attributes to Plant ==================
 
 def ft_garden_security() -> None:
@@ -70,12 +71,8 @@ def ft_garden_security() -> None:
 
     plant.show("Current state: ")
 
+
 # ============== Testing the Program ============================
 
 if __name__ == "__main__":
     ft_garden_security()
-
-
-
-
-
