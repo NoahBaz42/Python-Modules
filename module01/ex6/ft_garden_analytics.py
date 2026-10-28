@@ -30,8 +30,8 @@ class Plant:
         self.is_innit = True
 
     def display(self) -> None:
-        print(f"Stats: {self.stats.log_grow} grow,"
-              f"{self.stats.log_age} age,"
+        print(f"Stats: {self.stats.log_grow} grow, "
+              f"{self.stats.log_age} age, "
               f"{self.stats.log_show} show")
 
     def show(self) -> None:
@@ -115,19 +115,19 @@ class Tree(Plant):
 
     def display(self) -> None:
         super().display()
-        print(f"{self.stats.log_shade} shade")
+        print(f"{self.status.log_shade} shade")
 
     def __init__(self, name: str, height: int, age: int, trunk_diameter: int):
         super().__init__(name, height, age)
-        self.stats = self.Status()
         self.trunk_diameter = trunk_diameter
+        self.status = self.Status()
 
     def produce_shade(self) -> None:
         print(f"[asking the {self.name} to produce shade]")
         print(f"Tree {self.name.capitalize()} now produces "
               f"a shade of {self._height:.1f}cm long and "
               f"{self.trunk_diameter:.1f}cm wide.")
-        self.stats.count_shade()
+        self.status.count_shade()
 
     def show(self) -> None:
         super().show()
@@ -216,6 +216,7 @@ def ft_garden_analytics() -> None:
     seed.show()
     display_stats(seed)
 
+    print()
     print("=== Anonymous")
 
     secret = Plant.anonymous_plant()

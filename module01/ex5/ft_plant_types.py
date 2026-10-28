@@ -2,7 +2,7 @@
 # ============= Class Plant and method show =====================
 
 class Plant:
-    def __init__(self, name: str, height: int, age: int):
+    def __init__(self, name: str, height: float, age: int):
         self.name = name
         self._height = height
         self._age = age
@@ -13,22 +13,22 @@ class Plant:
         self.is_innit = True
 
     def show(self) -> None:
-        self.height = round(self.height, 1)
+        self._height = round(self._height, 1)
         print(
             f"{self.name.capitalize()}: "
-            f"{self.height:.1f}cm, {self.age} days old")
+            f"{self._height:.1f}cm, {self._age} days old")
 
     def grow(self) -> None:
-        self.height += 2.1
+        self._height += 2.1
 
     def age(self, days: int = 1) -> None:
-        self.age += 1
+        self._age += 1
 
-    def get_height(self) -> int:
-        return self.height
+    def get_height(self) -> float:
+        return self._height
 
     def get_age(self) -> int:
-        return self.age
+        return self._age
 
     def set_height(self, height: float) -> None:
         if height < 0:
@@ -36,7 +36,7 @@ class Plant:
             if self.is_innit:
                 print("Height update rejected")
         else:
-            self.height = height
+            self._height = height
             if self.is_innit:
                 print(f"Height updated: {height}cm")
 
@@ -46,7 +46,7 @@ class Plant:
             if self.is_innit:
                 print("Age update rejected")
         else:
-            self.age = age
+            self._age = age
             if self.is_innit:
                 print(f"Age updated: {age}days")
         if age < 0:
@@ -54,13 +54,13 @@ class Plant:
             if self.is_innit:
                 print("Age update rejected")
         else:
-            self.age = age
+            self._age = age
             if self.is_innit:
                 print(f"Age updated: {age}days")
 
 
 class Flower(Plant):
-    def __init__(self, name: str, height: int, age: int, color: str):
+    def __init__(self, name: str, height: float, age: int, color: str):
         super().__init__(name, height, age)
         print("=== Flower")
         self.color = color
@@ -80,7 +80,8 @@ class Flower(Plant):
 
 
 class Tree(Plant):
-    def __init__(self, name: str, height: int, age: int, trunk_diameter: int):
+    def __init__(self, name: str, height: float,
+                 age: int, trunk_diameter: int):
         super().__init__(name, height, age)
         print("=== Tree")
         self.trunk_diameter = trunk_diameter
@@ -88,8 +89,8 @@ class Tree(Plant):
     def produce_shade(self) -> None:
         print(f"[asking the {self.name} to produce shade]")
         print(f"Tree {self.name.capitalize()}"
-              "now produces a shade of {self.height:.1f}cm long and"
-              "{self.trunk_diameter:.1f}cm wide.")
+              f" now produces a shade of {self._height:.1f}cm long and "
+              f"{self.trunk_diameter:.1f}cm wide.")
 
     def show(self) -> None:
         super().show()
@@ -97,7 +98,8 @@ class Tree(Plant):
 
 
 class Vegetable(Plant):
-    def __init__(self, name: str, height: int, age: int, harvest_season: str):
+    def __init__(self, name: str, height: float,
+                 age: int, harvest_season: str):
         super().__init__(name, height, age)
         print("=== Vegetable")
         self.harvest_season = harvest_season
