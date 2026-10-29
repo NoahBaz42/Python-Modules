@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+
+
 def input_temperature(temp_str: str) -> int:
     graus = int(temp_str)
     if graus > 40:
